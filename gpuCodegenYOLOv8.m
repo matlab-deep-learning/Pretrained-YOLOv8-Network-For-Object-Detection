@@ -1,5 +1,5 @@
 % Add path containing the pretrained models.
-addpath('models/');
+addpath('models');
 
 % Read test image.
 I = imread(fullfile('data','inputTeam.jpg'));
