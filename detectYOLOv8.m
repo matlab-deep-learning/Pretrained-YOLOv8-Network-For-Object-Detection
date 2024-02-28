@@ -43,4 +43,8 @@ outFeatureMaps = cell(length(dlnet.OutputNames), 1);
 [bboxes,scores,labelIds] = helper.postprocess(outFeatureMaps, ...
      origSize, newSize, numClasses);
 
+bboxes = gather(bboxes);
+scores = gather(scores);
+labelIds = gather(labelIds);
+
 end
