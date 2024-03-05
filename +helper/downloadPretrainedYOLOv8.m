@@ -4,7 +4,7 @@ function model = downloadPretrainedYOLOv8(modelName)
 %
 % Copyright 2024 The MathWorks, Inc.
 
-supportedNetworks = ["yolov8s", "yolov8m", "yolov8l", "yolov8x"];
+supportedNetworks = ["yolov8n", "yolov8s", "yolov8m", "yolov8l", "yolov8x"];
 validatestring(modelName, supportedNetworks);
 
 dataPath = 'models';
