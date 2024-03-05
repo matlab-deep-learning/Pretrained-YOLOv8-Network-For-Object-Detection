@@ -29,20 +29,21 @@ addpath('models');
 ```
 ### Download the pretrained network
 Name of the pretrained YOLO v4 deep learning network, specified as one of these:
-
-| Model         |                                                          Description                                                                                                 |
-|-------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| yolov8n       |   Nano pretrained YOLO v8 model optimized for speed and efficiency.                                                                                                  |
-| yolov8s       |   Small pretrained YOLO v8 model balances speed and accuracy, suitable for applications requiring real-time performance with good detection quality.                 |
-| yolov8m       |   Medium pretrained YOLO v8 model offers higher accuracy with moderate computational demands.                                                                        |
-| yolov8l       |   Large pretrained YOLO v8 model prioritizes maximum detection accuracy for high-end systems, at the cost of computational intensity.                                |
-| yolov8x       |   Xtra pretrained YOLO v8 model is most accurate and computationally intensive version, intended for high-end systems where detection performance is paramount.      |
-
 - yolov8n
 - yolov8s
 - yolov8m
 - yolov8l
 - yolov8x
+
+Following is the description of various YOLO v8 models available in this repo:
+
+| Model         |                                      Description                                                                                                                   |
+|-------------- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| yolov8n       |   Nano pretrained YOLO v8 model optimized for speed and efficiency.                                                                                                |
+| yolov8s       |   Small pretrained YOLO v8 model balances speed and accuracy, suitable for applications requiring real-time performance with good detection quality.               |
+| yolov8m       |   Medium pretrained YOLO v8 model offers higher accuracy with moderate computational demands.                                                                      |
+| yolov8l       |   Large pretrained YOLO v8 model prioritizes maximum detection accuracy for high-end systems, at the cost of computational intensity.                              |
+| yolov8x       |   Extra Large YOLOv8 model is the most accurate but requires significant computational resources, ideal for high-end systems prioritizing detection performance.   |
 
 Use the code below to download the pretrained network.
 
