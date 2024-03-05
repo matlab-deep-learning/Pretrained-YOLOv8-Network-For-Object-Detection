@@ -51,7 +51,7 @@ Use the code below to download the pretrained network.
 % Load YOLO v8 model
 modelName = 'yolov8s';
 model = helper.downloadPretrainedYOLOv8(modelName);
-net = model.net;
+net = model.yolov8Net;
 ```
 
 ### Detect Objects Using Pretrained YOLO v8
