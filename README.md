@@ -82,7 +82,7 @@ annotations = string(labels) + ': ' + string(scores);
 Iout = insertObjectAnnotation(I, 'rectangle', bboxes, annotations);
 figure, imshow(Iout);
 ```
-![Results](/data/resultsTeam.jpg)
+![Results](/data/resultsTeam.png)
 
 
 ## Metrics and Evaluation
