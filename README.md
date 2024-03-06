@@ -28,7 +28,16 @@ Add path to the models directory.
 addpath('models');
 ```
 ### Download the pretrained network
-Name of the pretrained YOLO v4 deep learning network, specified as one of these:
+Use the code below to download the pretrained network.
+
+```matlab
+% Load YOLO v8 model
+modelName = 'yolov8s';
+model = helper.downloadPretrainedYOLOv8(modelName);
+net = model.yolov8Net;
+```
+
+modelName of the pretrained YOLO v8 deep learning model, specified as one of these:
 - yolov8n
 - yolov8s
 - yolov8m
@@ -44,15 +53,6 @@ Following is the description of various YOLO v8 models available in this repo:
 | yolov8m       |   Medium pretrained YOLO v8 model offers higher accuracy with moderate computational demands.                                                                      |
 | yolov8l       |   Large pretrained YOLO v8 model prioritizes maximum detection accuracy for high-end systems, at the cost of computational intensity.                              |
 | yolov8x       |   Extra Large YOLOv8 model is the most accurate but requires significant computational resources, ideal for high-end systems prioritizing detection performance.   |
-
-Use the code below to download the pretrained network.
-
-```matlab
-% Load YOLO v8 model
-modelName = 'yolov8s';
-model = helper.downloadPretrainedYOLOv8(modelName);
-net = model.yolov8Net;
-```
 
 ### Detect Objects Using Pretrained YOLO v8
 To perform object detection on an example image using the pretrained model, utilize the provided code below. Alternatively, you can execute the `runInference.m` script for the same purpose.
@@ -89,14 +89,13 @@ figure, imshow(Iout);
 
 ### Size and Accuracy Metrics
 
-| Model         | Input image resolution | Size (MB) |
-|-------------- |:----------------------:|:---------:|
-| yolov8n       |       640 x 640        |  10.7     |
-| yolov8s       |       640 x 640        |  37.2     |
-| yolov8m       |       640 x 640        |  85.4     |
-| yolov8l       |       640 x 640        |  143.3    |
-| yolov8x       |       640 x 640        |  222.7    |
-
+| Model         | Input image resolution | Size (MB) | mAP  |
+|-------------- |:----------------------:|:---------:|:----:|
+| yolov8n       |       640 x 640        |  10.7     | 37.3 |
+| yolov8s       |       640 x 640        |  37.2     | 44.9 |
+| yolov8m       |       640 x 640        |  85.4     | 50.2 |
+| yolov8l       |       640 x 640        |  143.3    | 52.9 |
+| yolov8x       |       640 x 640        |  222.7    | 53.9 |
 
 mAP for models trained on the COCO dataset is computed as average over IoU of .5:.95.
 
