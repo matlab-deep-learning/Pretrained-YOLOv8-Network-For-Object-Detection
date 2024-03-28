@@ -15,6 +15,7 @@ The software and model weights are released under the [GNU Affero General Public
 - MATLAB® R2023b or later
 - Computer Vision Toolbox™
 - Deep Learning Toolbox™
+- Deep Learning Toolbox Converter for ONNX Model Format
 - (optional) MATLAB® Coder for code generation
 - (optional) GPU Coder for code generation
 
