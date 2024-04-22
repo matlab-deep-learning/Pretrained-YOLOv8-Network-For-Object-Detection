@@ -8,8 +8,8 @@ I = imread(fullfile('data','inputTeam.jpg'));
 classNames = helper.getCOCOClassNames;
 numClasses = size(classNames,1);
 
-% Replace 'yolov8x' with 'yolov8-tiny' in yolov8Predict to generate code for
-% tiny version of YOLO v8.
+% Replace 'yolov8n' with other values in yolov8Predict to generate code for
+% other YOLO v8 variants.
 modelName = 'yolov8n';
 
 % Display yolov8Predict function.
