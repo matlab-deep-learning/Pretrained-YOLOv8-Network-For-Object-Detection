@@ -10,10 +10,11 @@ jobs:
       - checkout
       - matlab/install:
           release: R2024a
+          products: nnet
       - matlab/run-tests:
           test-results-junit: artifacts/test_results/matlab/results.xml
           # Have to add test/tools to the path for certain tests.
-          source-folder: .;test/tools;src
+          source-folder: .;test/tools
       - store_test_results:
           path: artifacts/test_results
       - store_artifacts:
