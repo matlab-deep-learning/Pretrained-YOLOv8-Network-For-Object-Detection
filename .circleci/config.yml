@@ -10,7 +10,7 @@ jobs:
       - checkout
       - matlab/install:
           release: R2024a
-          products: Computer_Vision_Toolbox Image_Processing_Toolbox Deep_Learning_Toolbox
+          products: Computer_Vision_Toolbox Image_Processing_Toolbox Deep_Learning_Toolbox Deep_Learning_Toolbox_Converter_for_ONNX_Model_Format
       - matlab/run-tests:
           test-results-junit: artifacts/test_results/matlab/results.xml
           # Have to add test/tools to the path for certain tests.
