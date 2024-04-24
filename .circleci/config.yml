@@ -10,7 +10,7 @@ jobs:
       - checkout
       - matlab/install:
           release: R2024a
-          products: neural_network_toolbox
+          products: Deep Learning Toolbox
       - matlab/run-tests:
           test-results-junit: artifacts/test_results/matlab/results.xml
           # Have to add test/tools to the path for certain tests.
