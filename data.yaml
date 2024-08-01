@@ -1,0 +1,12 @@
+path: ''
+train: images/train
+val: images/val
+test: null
+names:
+  0: exit
+  1: fireextinguisher
+  2: chair
+  3: clock
+  4: trashbin
+  5: screen
+  6: printer
