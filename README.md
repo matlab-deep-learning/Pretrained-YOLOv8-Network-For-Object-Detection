@@ -95,12 +95,12 @@ Training of a YOLO v8 object detector requires GPU drivers. Additionally, when t
 Run `installUltralytics.m` to install the required Python files and set up the Python environment for training YOLOv8. This MATLAB script automates downloading and setting up a standalone Python environment tailored for YOLOv8 training. It determines the system architecture, downloads the appropriate Python build, extracts it, and configures MATLAB settings to use this Python interpreter. Finally, it installs the Ultralytics package and its dependencies using `pip`.
 
 ### Obtain data
-Use the code below to download the multiclass dataset.
+Use the code below to download the multiclass dataset, or follow the subsequent steps to create a custom dataset.
 ```matlab
 helper.downloadMultiClassData()
 ```
 
-#### Dataset format
+#### Dataset format for custom dataset
 Labels for training YOLO v8 must be in YOLO format, with each image having its own *.txt file. If an image contains no objects, a *.txt file is not needed. Each *.txt file should have one row per object in the format: class xCenter yCenter width height, where class numbers start from 0, following a zero-indexed system. Box coordinates should be in normalized xywh format, ranging from 0 to 1. If the coordinates are in pixels, divide xCenter and width by the image width, and yCenter and height by the image height as shown below.
 
 <img src="/data/datasetFormat.png" alt="datasetFormat" width="500"/>
@@ -129,7 +129,7 @@ yCenter = yCenter./Irow;
 ht = ht./Irow;
 ```
 
-#### Dataset directory structure
+#### Dataset directory structure for custom dataset
 When using custom dataset for YOLO training, organize training and validation images and labels as shown in the datasets example directory below. It is mandatory to have both training and validation data to train YOLO v8 network.
 
 <img src="/data/datasetDir.png" alt="datasetDir" width="500"/>
