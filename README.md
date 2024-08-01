@@ -14,7 +14,7 @@ This repository provides multiple pretrained YOLO v8[1] object detection network
 The software and model weights are released under the [GNU Affero General Public License v3.0](LICENSE). For alternative licensing, contact [Ultralytics Licensing](https://www.ultralytics.com/license).
 
 ## Requirements
-- MATLAB® R2023b or later
+- MATLAB® R2024b or later
 - Computer Vision Toolbox™
 - Deep Learning Toolbox™
 - Deep Learning Toolbox Converter for ONNX Model Format
