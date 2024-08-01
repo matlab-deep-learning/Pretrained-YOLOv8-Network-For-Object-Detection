@@ -101,6 +101,14 @@ helper.downloadMultiClassData()
 ```
 For more information about multiclass object detection dataset, see [Multiclass Object Detection Using YOLO v2 Deep Learning](https://in.mathworks.com/help/vision/ug/multiclass-object-detection-using-yolo-v2-deep-learning.html) example.
 
+### Configure custom data to train YOLO v8 object detector
+Refer to `getYOLOFormat.m` to configure custom data to the YOLO format for training the YOLO v8 object detector. The following sections provides more details on the dataset format.
+
+#### Dataset directory structure for custom dataset
+When using custom dataset for YOLO v8 training, organize training and validation images and labels as shown in the datasets example directory below. It is mandatory to have both training and validation data to train YOLO v8 network.
+
+<img src="/data/datasetDir.png" alt="datasetDir" width="500"/>
+
 #### Dataset format for custom dataset
 Labels for training YOLO v8 must be in YOLO format, with each image having its own *.txt file. If an image contains no objects, a *.txt file is not needed. Each *.txt file should have one row per object in the format: class xCenter yCenter width height, where class numbers start from 0, following a zero-indexed system. Box coordinates should be in normalized xywh format, ranging from 0 to 1. If the coordinates are in pixels, divide xCenter and width by the image width, and yCenter and height by the image height as shown below.
 
@@ -129,11 +137,6 @@ wdt = wdt./Icol;
 yCenter = yCenter./Irow;
 ht = ht./Irow;
 ```
-
-#### Dataset directory structure for custom dataset
-When using custom dataset for YOLO training, organize training and validation images and labels as shown in the datasets example directory below. It is mandatory to have both training and validation data to train YOLO v8 network.
-
-<img src="/data/datasetDir.png" alt="datasetDir" width="500"/>
 
 ### Train YOLO v8 object detector
 Run below code to train YOLO v8 object detector on multiclass object detection dataset. For more information about evaluation, see [Multiclass Object Detection Using YOLO v2 Deep Learning](https://in.mathworks.com/help/vision/ug/multiclass-object-detection-using-yolo-v2-deep-learning.html) example.
