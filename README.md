@@ -95,10 +95,11 @@ Training of a YOLO v8 object detector requires GPU drivers. Additionally, when t
 Run `installUltralytics.m` to install the required Python files and set up the Python environment for training YOLOv8. This MATLAB script automates downloading and setting up a standalone Python environment tailored for YOLOv8 training. It determines the system architecture, downloads the appropriate Python build, extracts it, and configures MATLAB settings to use this Python interpreter. Finally, it installs the Ultralytics package and its dependencies using `pip`.
 
 ### Obtain data
-Use the code below to download the multiclass dataset, or follow the subsequent steps to create a custom dataset.
+Use the code below to download the multiclass object detection dataset, or the subsequent steps can be followed to create a custom dataset. The dataset downloaded using the following command will already be in the required format, allowing the [Transfer learning](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection/tree/main?tab=readme-ov-file#transfer-learning) section to be proceeded with directly.
 ```matlab
 helper.downloadMultiClassData()
 ```
+For more information about multiclass object detection dataset, see [Multiclass Object Detection Using YOLO v2 Deep Learning](https://in.mathworks.com/help/vision/ug/multiclass-object-detection-using-yolo-v2-deep-learning.html) example.
 
 #### Dataset format for custom dataset
 Labels for training YOLO v8 must be in YOLO format, with each image having its own *.txt file. If an image contains no objects, a *.txt file is not needed. Each *.txt file should have one row per object in the format: class xCenter yCenter width height, where class numbers start from 0, following a zero-indexed system. Box coordinates should be in normalized xywh format, ranging from 0 to 1. If the coordinates are in pixels, divide xCenter and width by the image width, and yCenter and height by the image height as shown below.
@@ -135,7 +136,7 @@ When using custom dataset for YOLO training, organize training and validation im
 <img src="/data/datasetDir.png" alt="datasetDir" width="500"/>
 
 ### Transfer learning
-Run below code to train YOLO v8 object detector on multiclass object detection dataset. For more information about dataset and evaluation, see [Multiclass Object Detection Using YOLO v2 Deep Learning](https://in.mathworks.com/help/vision/ug/multiclass-object-detection-using-yolo-v2-deep-learning.html) example.
+Run below code to train YOLO v8 object detector on multiclass object detection dataset. For more information about evaluation, see [Multiclass Object Detection Using YOLO v2 Deep Learning](https://in.mathworks.com/help/vision/ug/multiclass-object-detection-using-yolo-v2-deep-learning.html) example.
 
 ```matlab
 yolov8Det = trainYOLOv8ObjectDetector('data.yaml','yolov8n.pt', ImageSize=[720 720 3], MaxEpochs=10);
