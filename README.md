@@ -135,7 +135,7 @@ When using custom dataset for YOLO training, organize training and validation im
 
 <img src="/data/datasetDir.png" alt="datasetDir" width="500"/>
 
-### Transfer learning
+### Train YOLO v8 object detector
 Run below code to train YOLO v8 object detector on multiclass object detection dataset. For more information about evaluation, see [Multiclass Object Detection Using YOLO v2 Deep Learning](https://in.mathworks.com/help/vision/ug/multiclass-object-detection-using-yolo-v2-deep-learning.html) example.
 
 ```matlab
