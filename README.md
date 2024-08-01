@@ -135,7 +135,7 @@ When using custom dataset for YOLO training, organize training and validation im
 <img src="/data/datasetDir.png" alt="datasetDir" width="500"/>
 
 ### Transfer learning
-Run below code to perform multiclass object detection on a custom data set. For more information about dataset and evaluation, see [Multiclass Object Detection Using YOLO v2 Deep Learning](https://in.mathworks.com/help/vision/ug/multiclass-object-detection-using-yolo-v2-deep-learning.html) example.
+Run below code to train YOLO v8 object detector on multiclass object detection dataset. For more information about dataset and evaluation, see [Multiclass Object Detection Using YOLO v2 Deep Learning](https://in.mathworks.com/help/vision/ug/multiclass-object-detection-using-yolo-v2-deep-learning.html) example.
 
 ```matlab
 yolov8Det = trainYOLOv8ObjectDetector('data.yaml','yolov8n.pt', ImageSize=[720 720 3], MaxEpochs=10);
