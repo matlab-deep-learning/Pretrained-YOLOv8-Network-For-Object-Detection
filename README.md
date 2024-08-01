@@ -95,7 +95,7 @@ Training of a YOLO v8 object detector requires GPU drivers. Additionally, when t
 Run `installUltralytics.m` to install the required Python files and set up the Python environment for training YOLOv8. This MATLAB script automates downloading and setting up a standalone Python environment tailored for YOLOv8 training. It determines the system architecture, downloads the appropriate Python build, extracts it, and configures MATLAB settings to use this Python interpreter. Finally, it installs the Ultralytics package and its dependencies using `pip`.
 
 ### Obtain data
-Use the code below to download the multiclass object detection dataset, or the subsequent steps can be followed to create a custom dataset. The dataset downloaded using the following command will already be in the required format, allowing the [Train YOLO v8 object detector]([https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection/tree/main?tab=readme-ov-file#transfer-learning](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection/tree/main?tab=readme-ov-file#train-yolo-v8-object-detector)) section to be proceeded with directly.
+Use the code below to download the multiclass object detection dataset, or the subsequent steps can be followed to create a custom dataset. The dataset downloaded using the following command will already be in the required format, allowing the [Train YOLO v8 object detector](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection/tree/main?tab=readme-ov-file#train-yolo-v8-object-detector) section to be proceeded with directly.
 ```matlab
 helper.downloadMultiClassData()
 ```
