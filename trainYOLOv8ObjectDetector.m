@@ -75,6 +75,9 @@ end
 
 terminate(pyenv)
 pyenv("glnxa64/python/bin/python3", ExecutionMode = "OutOfProcess")
+if isunix
+    py.sys.setdlopenflags(int32(bitor(int64(py.os.RTLD_LAZY),int64(py.os.RTLD_DEEPBIND))));
+end
 
 pythonObject = py.trainYOLOv8Wrapper.yolov8TrainerClass(py.str(baseModel),py.int(options.ImageSize(1,1))); 
 
