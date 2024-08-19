@@ -73,6 +73,9 @@ if ~canUseGPU()
 error("Training of YOLO v8 object detector requires GPU.")
 end
 
+terminate(pyenv)
+pyenv("glnxa64/python/bin/python3", ExecutionMode = "OutOfProcess")
+
 pythonObject = py.trainYOLOv8Wrapper.yolov8TrainerClass(py.str(baseModel),py.int(options.ImageSize(1,1))); 
 
 % Train YOLO v8 using config. file
