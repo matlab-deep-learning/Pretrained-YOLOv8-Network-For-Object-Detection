@@ -79,7 +79,7 @@
 % See also segmentObjects, solov2, maskrcnn, evaluateInstanceSegmentation,
 %          insertObjectMask.
 
-% Copyright 2024 The MathWorks, Inc.
+% Copyright 2025 The MathWorks, Inc.
 
 classdef yolov8
 
