@@ -1,14 +1,31 @@
-# Pretrained YOLO v8 Network For Object Detection
+# Object Detection And Instance Segmentation Using YOLO v8
 
-This repository provides multiple pretrained YOLO v8[1] object detection networks for MATLAB®, trained on the COCO 2017[2] dataset. These object detectors can detect 80 different object categories including [person, car, traffic light, etc](/src/%2Bhelper/getCOCOClasess.m). [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection)
+This repository offers a variety of pretrained YOLO v8[1] networks for object detection and instance segmentation in MATLAB®. These networks are trained on the COCO 2017[2] dataset and are capable of detecting 80 different object categories, including [person, car, traffic light, etc](/src/%2Bhelper/getCOCOClasess.m). Additionally, this repository supports training custom object detectors to fine-tune models for specific applications. [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection)
 
 **Creator**: MathWorks Development
 
+## Table of Contents
+- ### [Object Detection](https://insidelabs-git.mathworks.com/viakkala/pretrained-yolo-v8-network-for-object-detection/-/blob/supportTraining/README.md#object-detection)
+- ### [Transfer learn for object detection](https://insidelabs-git.mathworks.com/viakkala/pretrained-yolo-v8-network-for-object-detection/-/blob/supportTraining/README.md#transfer-learning)
+- ### [Instance Segmentation](https://insidelabs-git.mathworks.com/viakkala/pretrained-yolo-v8-network-for-object-detection/-/blob/supportTraining/README.md#instance-segmentation)
+
+
+| Support            | Object Detection      | Instance Segmentation    |
+|--------------------|:---------------------:|:------------------------:|
+| Inference          |       &check;      |  &check;     |
+| Codegen            |       &check;      |  &check;     |
+| Simulink           |       &check;      |  &cross;     |
+| Transfer learning  |       &check;      |  &cross;     |
+
+<!---
+**Includes Inference support **: ✔  
+
 **Includes Codegen support**: ✔  
 
-**Includes transfer learning script**: ✔  
-
 **Includes Simulink support script**: ✔  
+
+**Includes Transfer learning script for object detection**: ✔  
+-->
 
 ## License
 The software and model weights are released under the [GNU Affero General Public License v3.0](LICENSE). For alternative licensing, contact [Ultralytics Licensing](https://www.ultralytics.com/license).
@@ -18,12 +35,15 @@ The software and model weights are released under the [GNU Affero General Public
 - Computer Vision Toolbox™
 - Deep Learning Toolbox™
 - Deep Learning Toolbox Converter for ONNX Model Format
-- (optional) Visual Studio C++ compiler for training on Windows
+- (optional) Visual Studio C++ compiler for training object detector on Windows
 - (optional) MATLAB® Coder for code generation
 - (optional) GPU Coder for code generation
 
 ## Getting Started
-Download or clone this repository to your machine and open it in MATLAB®.
+Download or clone this repository to your machine and open it in MATLAB®. 
+
+## Object Detection
+This section shows how to use YOLO v8 for object detection. To use YOLO v8 for instance segmentation, navigate to the [Instance Segmentation section](https://insidelabs-git.mathworks.com/viakkala/pretrained-yolo-v8-network-for-object-detection/-/blob/supportTraining/README.md#instance-segmentation).
 
 ### Download the pretrained network
 Use the code below to download the pretrained network.
@@ -155,6 +175,71 @@ annotatedImage = insertObjectAnnotation(I,"rectangle",bbox,label,LineWidth=4,Fon
 figure
 imshow(annotatedImage)
 ```
+## Instance Segmentation
+### Download the pretrained network
+Use the code below to download the pretrained network.
+
+```matlab
+% Load YOLO v8 model
+det = yolov8('yolov8s');
+
+% Analyze loaded model
+analyzeNetwork(det.Network);
+```
+
+modelName of the pretrained YOLO v8 deep learning model, specified as one of these:
+- yolov8n
+- yolov8s
+- yolov8m
+- yolov8l
+- yolov8x
+
+Following is the description of various YOLO v8 models available in this repo:
+
+| Model         |                                      Description                                                                                                                   |
+|-------------- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| yolov8n       |   Nano pretrained YOLO v8 model optimized for speed and efficiency.                                                                                                |
+| yolov8s       |   Small pretrained YOLO v8 model balances speed and accuracy, suitable for applications requiring real-time performance with good detection quality.               |
+| yolov8m       |   Medium pretrained YOLO v8 model offers higher accuracy with moderate computational demands.                                                                      |
+| yolov8l       |   Large pretrained YOLO v8 model prioritizes maximum segmentation accuracy for high-end systems, at the cost of computational intensity.                              |
+| yolov8x       |   Extra Large YOLOv8 model is the most accurate but requires significant computational resources, ideal for high-end systems prioritizing detection performance.   |
+
+### Segment Objects Using Pretrained YOLO v8
+To perform instance segmentation on an example image using the pretrained model, utilize the provided code below.
+
+```matlab
+% Read test image.
+I = imread(fullfile('data','inputTeam.jpg'));
+
+% Load YOLO v8 medium network.
+det = yolov8('yolov8m');
+
+% Perform detection using pretrained model.
+[masks,labels,scores,bboxes] = segmentObjects(det, I, Threshold=0.25);
+
+% Visualize detection results.
+Idisp = insertObjectAnnotation(I,"rectangle",bboxes,labels);
+numMasks = size(masks,3);
+overlayedImage = insertObjectMask(Idisp,masks,MaskColor=lines(numMasks));
+figure;imshow(overlayedImage);
+```
+![Results](/data/segmentationResultsTeam.jpg)
+
+
+## Metrics and Evaluation
+
+### Size and Accuracy Metrics
+
+| Model         | Input image resolution | Size (MB) | mAP  |
+|-------------- |:----------------------:|:---------:|:----:|
+| yolov8n       |       640 x 640        |  ToDo     | ToDo |
+| yolov8s       |       640 x 640        |  ToDo     | ToDo |
+| yolov8m       |       640 x 640        |  ToDo     | ToDo |
+| yolov8l       |       640 x 640        |  ToDo    | ToDo |
+| yolov8x       |       640 x 640        |  ToDo    | ToDo |
+
+mAP for models trained on the COCO dataset is computed as average over IoU of .5:.95.
+
 
 ## Deployment
 Code generation enables you to generate code and deploy YOLO v8 on multiple embedded platforms. The list of supported platforms is shown below:
@@ -181,10 +266,11 @@ To run the simulation, click `Run` from the `Simulation` tab.
 
 The output will be logged to the workspace variable `out` from the Simulink model.
 
-## Network Overview
-YOLO v8 is one of the best performing object detectors and is considered as an improvement to the existing YOLO variants such as YOLO v5, and YOLOX.
 
-Following are the key features of the YOLO v8 object detector compared to its predecessors:
+## Network Overview
+YOLO v8 is one of the best performing detectors and is considered as an improvement to the existing YOLO variants such as YOLO v5, and YOLOX.
+
+Following are the key features of the YOLO v8 detector compared to its predecessors:
 - Improved Accuracy: YOLO v8 is expected to offer enhanced accuracy in object detection compared to its previous versions. This improvement can lead to more precise and reliable detection results.
 - Better Speed and Efficiency: YOLO v8 may have optimizations that allow it to achieve faster processing speeds while maintaining high accuracy. This can be crucial for real-time applications or scenarios with limited computational resources.
 - Advanced Backbone Network: YOLO v8 might incorporate a more advanced backbone network architecture, such as Darknet-53 or a similar architecture, which can enable better feature extraction and representation.
