@@ -96,7 +96,7 @@ pythonObject.exportModel(onnxExportPath);
 
 % Import the exported model in MATLAB
 modelPath = fullfile(onnxExportDir{1:end-1});
-net = importYOLOv8Model(modelPath);
+net = importYOLOv8Model(fullfile(modelPath,"best.onnx"));
 
 dictValues = pythonObject.getClassNames(configFile);
 classDict = dictValues{"names"};
