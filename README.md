@@ -226,7 +226,7 @@ figure;imshow(overlayedImage);
 ![Results](/data/segmentationResultsTeam.jpg)
 
 ### Segment Objects Using Imported YOLO v8
-Import the ONNX model into the following code. Use `model.export` in Python to export the model in ONNX format. For example, use 'yolov8nSeg.onnx' from Releases/v1.0.0 to verify the workflow.
+Import the ONNX model into the following code. Use `model.export` in Python to export the model in ONNX format. For example, use 'yolov8nSeg.onnx' from [Releases](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection/releases) folder to verify the workflow.
 
 ```matlab
 % Import YOLO v8 model.
