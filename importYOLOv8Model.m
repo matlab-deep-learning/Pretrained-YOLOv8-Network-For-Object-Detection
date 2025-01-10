@@ -1,5 +1,5 @@
-function yolov8Net = importYOLOv8Model(modelPath)
-networkImported = importNetworkFromONNX(fullfile(modelPath,"best.onnx"));
+function yolov8Net = importYOLOv8Model(modelToImport)
+networkImported = importNetworkFromONNX(modelToImport);
 
 % Obtain Layer Names
 info = analyzeNetwork(networkImported,Plots="none");
