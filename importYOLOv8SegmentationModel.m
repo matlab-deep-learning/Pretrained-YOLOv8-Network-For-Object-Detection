@@ -40,7 +40,7 @@ firstConvLayer = batchVerifierIdx + 1;
 networkImported = connectLayers(networkImported,layerNames{firstLayer,1},layerNames{firstConvLayer,1});
 
 % Replace sigmoid + multiplication layer with Swish layer.
-networkImported = mapToSwishLayer(networkImported);
+networkImported = helper.mapToSwishLayer(networkImported);
 
 % Initialize Network.
 networkImported = initialize(networkImported);
