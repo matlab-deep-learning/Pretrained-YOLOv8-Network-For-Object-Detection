@@ -225,6 +225,54 @@ figure;imshow(overlayedImage);
 ```
 ![Results](/data/segmentationResultsTeam.jpg)
 
+### Segment Objects Using Imported YOLO v8
+Import the onnx model into the following code. Use model.export in python to export the model in onnx format.
+
+```matlab
+% Import YOLO v8 model.
+net = importYOLOv8SegmentationModel(<model to be imported>);
+```
+
+To perform instance segmentation on an example image using imported model, utilize the provided code below.
+
+```matlab
+% Read test image.
+I = imread(fullfile('data','inputTeam.jpg'));
+
+% Specify the input size that the model network is trained on.
+inputSize = [640 640 3];
+
+% Apply Preprocessing on the input image.
+origSize = size(im);
+Ibgr = im(:,:,[3,2,1]); % convert image to bgr
+img = helper.preprocess(Ibgr, inputSize);
+
+newSize = size(img);
+Iout = img(:,:,[3,2,1]); % convert image to rgb
+
+% Convert input image to 'SSCB' format.
+dlInput = dlarray(Iout, 'SSCB');
+
+% Obtain network predictions.
+outFeatureMaps = cell(7,1);
+[outFeatureMaps{:}] = predict(det, dlInput);
+
+% Define number of classes, the model is trained on.
+numClasses = 80;
+
+% Apply postprocessing on the output feature maps.
+[masks,labelIds, scores, bboxes] = helper.postprocessYOLOv8Seg(outFeatureMaps, ...
+    origSize, newSize, numClasses);
+
+% Visualize detection results.
+Idisp = insertObjectAnnotation(I,"rectangle",bboxes,labelsIds);
+numMasks = size(masks,3);
+overlayedImage = insertObjectMask(Idisp,masks,MaskColor=lines(numMasks));
+figure;imshow(overlayedImage);
+```
+![Results](/data/segmentationResultsTeam.jpg)
+
+
 
 ## Metrics and Evaluation
 
