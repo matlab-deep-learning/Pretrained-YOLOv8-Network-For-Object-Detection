@@ -8,12 +8,15 @@ This repository offers a variety of pretrained YOLO v8[1] networks for object de
 - ### [Object Detection](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#object-detection-1)
 - ### [Transfer learn for object detection](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#transfer-learning)
 - ### [Instance Segmentation](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#instance-segmentation-1)
+- ### [Deployment](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#deployment)
+- ### [Simulink](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#simulink)
+- ### [Network Overview](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#network-overview)
 
 
 | Support            | Object Detection      | Instance Segmentation    |
 |--------------------|:---------------------:|:------------------------:|
 | Inference          |       &check;      |  &check;     |
-| Codegen            |       &check;      |  &check;     |
+| Deployment (Codegen)            |       &check;      |  &check;     |
 | Simulink           |       &check;      |  &cross;     |
 | Transfer learning  |       &check;      |  &cross;     |
 
@@ -225,70 +228,6 @@ figure;imshow(overlayedImage);
 ```
 ![Results](/data/segmentationResultsTeam.jpg)
 
-### Segment Objects Using Imported YOLO v8
-Import the ONNX model into the following code. Use `model.export` in Python to export the model in ONNX format. For example, use 'yolov8nSeg.onnx' from [Releases](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection/releases) folder to verify the workflow.
-
-```matlab
-% Import YOLO v8 model.
-net = importYOLOv8SegmentationModel(<model to be imported>);
-```
-
-To perform instance segmentation on an example image using imported model, utilize the provided code below.
-
-```matlab
-% Read test image.
-I = imread(fullfile('data','inputTeam.jpg'));
-
-% Specify the input size that the model network is trained on.
-inputSize = [640 640 3];
-
-% Apply Preprocessing on the input image.
-origSize = size(im);
-Ibgr = im(:,:,[3,2,1]); % convert image to bgr
-img = helper.preprocess(Ibgr, inputSize);
-
-newSize = size(img);
-Iout = img(:,:,[3,2,1]); % convert image to rgb
-
-% Convert input image to 'SSCB' format.
-dlInput = dlarray(Iout, 'SSCB');
-
-% Obtain network predictions.
-outFeatureMaps = cell(7,1);
-[outFeatureMaps{:}] = predict(det, dlInput);
-
-% Define number of classes, the model is trained on.
-numClasses = 80;
-
-% Apply postprocessing on the output feature maps.
-[masks,labelIds, scores, bboxes] = helper.postprocessYOLOv8Seg(outFeatureMaps, ...
-    origSize, newSize, numClasses);
-
-% Visualize detection results.
-Idisp = insertObjectAnnotation(I,"rectangle",bboxes,labelsIds);
-numMasks = size(masks,3);
-overlayedImage = insertObjectMask(Idisp,masks,MaskColor=lines(numMasks));
-figure;imshow(overlayedImage);
-```
-![Results](/data/segmentationResultsTeam.jpg)
-
-
-
-## Metrics and Evaluation
-
-### Size and Accuracy Metrics
-
-| Model         | Input image resolution | Size (MB) | mAP  |
-|-------------- |:----------------------:|:---------:|:----:|
-| yolov8n       |       640 x 640        |  ToDo     | ToDo |
-| yolov8s       |       640 x 640        |  ToDo     | ToDo |
-| yolov8m       |       640 x 640        |  ToDo     | ToDo |
-| yolov8l       |       640 x 640        |  ToDo    | ToDo |
-| yolov8x       |       640 x 640        |  ToDo    | ToDo |
-
-mAP for models trained on the COCO dataset is computed as average over IoU of .5:.95.
-
-
 ## Deployment
 Code generation enables you to generate code and deploy YOLO v8 on multiple embedded platforms. The list of supported platforms is shown below:
 
@@ -331,4 +270,4 @@ Following are the key features of the YOLO v8 detector compared to its predecess
 [2] Lin, T., et al. "Microsoft COCO: Common objects in context. arXiv 2014." arXiv preprint arXiv:1405.0312 (2014).
 
 
-Copyright 2024 The MathWorks, Inc.
+Copyright 2024 - 2025 The MathWorks, Inc.
