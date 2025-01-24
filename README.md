@@ -5,13 +5,12 @@ This repository offers a variety of pretrained YOLO v8[1] networks for object de
 **Creator**: MathWorks Development
 
 ## Table of Contents
-- ### [Object Detection](#object-detection-2)
-- ### [Object Detection](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#object-detection-1)
-- ### [Transfer learn for object detection](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#transfer-learning)
-- ### [Instance Segmentation](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#instance-segmentation-1)
-- ### [Deployment](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#deployment-1)
-- ### [Simulink](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#simulink-1)
-- ### [Network Overview](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection?tab=readme-ov-file#network-overview-1)
+- ### [Object Detection](#object-detection-1)
+- ### [Transfer learn for object detection](#transfer-learning)
+- ### [Instance Segmentation](#instance-segmentation-1)
+- ### [Deployment](#deployment-1)
+- ### [Simulink](#simulink-1)
+- ### [Network Overview](#network-overview-1)
 
 
 | Support            | Object Detection      | Instance Segmentation    |
