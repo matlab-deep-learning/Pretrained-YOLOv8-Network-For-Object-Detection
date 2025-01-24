@@ -1,6 +1,6 @@
 # Object Detection And Instance Segmentation Using YOLO v8
 
-This repository offers a variety of pretrained YOLO v8[1] networks for object detection and instance segmentation in MATLAB®. These networks are trained on the COCO 2017[2] dataset and are capable of detecting 80 different object categories, including [person, car, traffic light, etc](/main/%2Bhelper/getCOCOClasess.m). Additionally, this repository supports training custom object detectors to fine-tune models for specific applications. [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection)
+This repository offers a variety of pretrained YOLO v8[1] networks for object detection and instance segmentation in MATLAB®. These networks are trained on the COCO 2017[2] dataset and are capable of detecting 80 different object categories, including [person, car, traffic light, etc](/%2Bhelper/getCOCOClassNames.m). Additionally, this repository supports training custom object detectors to fine-tune models for specific applications. [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection)
 
 **Creator**: MathWorks Development
 
