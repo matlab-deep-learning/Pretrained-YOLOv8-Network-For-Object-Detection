@@ -1186,3 +1186,24 @@ out{3} = data.boxScore;
 out{4} = data.boxes;
 
 end
+
+%--------------------------------------------------------------------------
+function iValidateClassNames(value)
+if ~isvector(value) || ~iIsValidDataType(value)
+    error('Classes must be specified as a string vector, a cell array of character vectors, or a categorical vector.');
+end
+if iHasDuplicates(value)
+    error('Classes must be unique.');
+end
+end
+
+
+%--------------------------------------------------------------------------
+function tf = iIsValidDataType(value)
+    tf = iscategorical(value) || iscellstr(value) || isstring(value);
+end
+
+%--------------------------------------------------------------------------
+function tf = iHasDuplicates(value)
+    tf = ~isequal(value, unique(value, 'stable'));
+end
