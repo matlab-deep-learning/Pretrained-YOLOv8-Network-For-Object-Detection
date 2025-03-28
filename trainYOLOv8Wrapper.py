@@ -17,8 +17,8 @@ class yolov8TrainerClass():
         model.export(format='onnx',opset=14)
 
 
-    def getClassNames(self,stream):
-        with open("data.yaml") as stream:
+    def getClassNames(self,fileName):
+        with open(fileName) as stream:
             try:
                 dictValue = yaml.safe_load(stream)
             except yaml.YAMLError as exc:
