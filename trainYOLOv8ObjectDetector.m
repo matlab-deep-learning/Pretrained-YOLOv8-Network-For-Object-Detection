@@ -63,7 +63,7 @@ function yolov8Det = trainYOLOv8ObjectDetector(configFile,baseModel,options)
 
 arguments
     configFile;
-    baseModel {mustBeMember(baseModel, ["yolov8n.pt","yolov8s.pt","yolov8m.pt","yolov8l.pt","yolov8x.pt"])};
+    baseModel {mustBeValidBaseModel(baseModel)};
     options.MaxEpochs (1,1) {mustBeNumeric, mustBePositive, mustBeReal, mustBeFinite} = 10;
     options.MiniBatchSize (1,1) {mustBeNumeric, mustBePositive, mustBeReal, mustBeFinite} = 16;
     options.ImageSize {mustBeNumeric, mustBePositive, mustBeReal, mustBeFinite} = [640 640 3];
@@ -111,4 +111,11 @@ classNames = values(matlabDict);
 
 yolov8Det = yolov8ObjectDetector(net, classNames);
 
+end
+
+function mustBeValidBaseModel(baseModel)
+    % Check if baseModel ends with '.pt'
+    if ~endsWith(baseModel, '.pt')
+        error("baseModel must end with '.pt'.");
+    end
 end
