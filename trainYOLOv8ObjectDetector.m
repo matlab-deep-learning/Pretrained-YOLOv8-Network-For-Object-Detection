@@ -74,7 +74,13 @@ error("Training of YOLO v8 object detector requires GPU.")
 end
 
 terminate(pyenv)
+
+if (ispc)
+pyenv(Version="win64/python/python.exe", ExecutionMode = "OutOfProcess")
+else
 pyenv(Version="glnxa64/python/bin/python3", ExecutionMode = "OutOfProcess")
+end
+
 if isunix
     py.sys.setdlopenflags(int32(bitor(int64(py.os.RTLD_LAZY),int64(py.os.RTLD_DEEPBIND))));
 end
