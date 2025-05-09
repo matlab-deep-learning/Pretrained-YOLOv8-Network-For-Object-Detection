@@ -46,7 +46,7 @@ The software and model weights are released under the [GNU Affero General Public
 Download or clone this repository to your machine and open it in MATLAB®. 
 
 ## Object Detection
-This section shows how to use YOLO v8 for object detection. To use YOLO v8 for instance segmentation, navigate to the [Instance Segmentation section](https://insidelabs-git.mathworks.com/viakkala/pretrained-yolo-v8-network-for-object-detection/-/blob/supportTraining/README.md#instance-segmentation).
+This section shows how to use YOLO v8 for object detection. To use YOLO v8 for instance segmentation, navigate to the [Instance Segmentation section](https://github.com/matlab-deep-learning/Pretrained-YOLOv8-Network-For-Object-Detection/tree/main?tab=readme-ov-file#instance-segmentation-1).
 
 ### Download the pretrained network
 Use the code below to download the pretrained network.
