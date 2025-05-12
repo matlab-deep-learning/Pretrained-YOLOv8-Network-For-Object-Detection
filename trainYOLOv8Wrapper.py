@@ -9,7 +9,7 @@ class yolov8TrainerClass():
         self.model = YOLO(baseModel)
 
     def trainYOLOv8(self, config, epochs):
-        results = self.model.train(data= config, epochs=epochs, imgsz=self.imgSize, pretrained=true)
+        results = self.model.train(data= config, epochs=epochs, imgsz=self.imgSize, pretrained=True)
         return results
     
     def exportModel(self, onnxPath):
