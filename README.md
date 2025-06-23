@@ -235,9 +235,12 @@ Code generation enables you to generate code and deploy YOLO v8 on multiple embe
 |------------------------------------|:---------:|:---------------------------:|
 | GPU Coder                          |     ✔     |    run `gpuCodegenYOLOv8.m` |
 | MATLAB Coder                       |     ✔     |    run `codegenYOLOv8.m`    |
+| Deep Learning HDL Toolbox          |     ✔     |   run `deployToFPGAYOLOv8.mlx`|
 
 To deploy YOLO v8 to GPU Coder, run `gpuCodegenYOLOv8.m`. This script calls the `yolov8Predict.m` entry point function and generate CUDA code for it. It will run the generated MEX and give an output.
 For more information about codegen, see [Deep Learning with GPU Coder](https://in.mathworks.com/help/gpucoder/gpucoder-deep-learning.html).
+
+To deploy YOLOv8 to a Xilinx Zynq UltraScale+ ZCU102 MPSoC, run `deployToFPGAYOLOv8.mlx`. For more information, see [Getting started](https://in.mathworks.com/help/deep-learning-hdl/get-started-with-deep-learning-hdl-toolbox.html) with [Deep Learning HDL Toolbox](https://in.mathworks.com/help/deep-learning-hdl/index.html).
 
 ## Simulink
 Simulink is a block diagram environment used to design systems with multidomain models, simulate before moving to hardware, and deploy without writing code. For more information about simulink, see [Get Started with Simulink](https://in.mathworks.com/help/simulink/getting-started-with-simulink.html)
